@@ -2,14 +2,17 @@ DECLARE SUB GeneraLetras ()
 RANDOMIZE TIMER
 DIM X AS INTEGER
 DIM Num AS INTEGER
+DIM Resul AS STRING
 DIM SHARED Letra(26) AS STRING
 
 DO
+  Resul$ = ""
   CLS
   DO
     INPUT "¨Cu ntas letras tendr  tu palabra? ", Num
     IF Num > 25 THEN PRINT "Muy largo, ¨no crees?"
-  LOOP WHILE Num > 25
+    IF Num < 1 THEN PRINT "No sab¡a que hab¡a palabras de esa longitud"
+  LOOP WHILE Num > 25 OR Num < 1
   SCREEN 0, , 2
 
   CLS 2
@@ -17,18 +20,27 @@ DO
     DO
       IF Num > 0 THEN
         GeneraLetras
-        LOCATE 1, 1: INPUT "¨Vocal o consonante? (V/C): ", Vocons$
+        LOCATE 1, 1: INPUT "¨Vocal o Consonante? ¨O prefieres salir? (V/C/S): ", Vocons$
       END IF
-    LOOP UNTIL UCASE$(Vocons$) = "V" OR UCASE$(Vocons$) = "C"
+    LOOP UNTIL UCASE$(Vocons$) = "V" OR UCASE$(Vocons$) = "C" OR UCASE$(Vocons$) = "S"
  
-    IF UCASE$(Vocons$) = "V" THEN LOCATE 5, X: PRINT Letra$(INT((25 - 21 + 1) * RND + 21))
-    IF UCASE$(Vocons$) = "C" THEN LOCATE 5, X: PRINT Letra$(INT(RND * 20))
+    IF UCASE$(Vocons$) = "V" THEN Resul$ = Resul$ + Letra$(INT((25 - 21 + 1) * RND + 21))
+    IF UCASE$(Vocons$) = "C" THEN Resul$ = Resul$ + Letra$(INT(RND * 20))
+
+    LOCATE 3, 1: PRINT "Restante:"; Num - X
+    LOCATE 5, 1: PRINT Resul$
+
   NEXT X
-  
+
+  OPEN "LETRITAS.RES" FOR APPEND AS #1
+  PRINT #1, Resul$
+  CLOSE #1
+
   DO
     LOCATE 7, 1: INPUT "¨M s? (S/N): ", SN$
   LOOP UNTIL UCASE$(SN$) = "S" OR UCASE$(SN$) = "N"
 LOOP WHILE UCASE$(SN$) = "S"
+
 END
 
 SUB GeneraLetras
