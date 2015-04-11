@@ -1,2 +1,2 @@
 # ssrwg
-ssrwg - A simple and stupid random word generator
+A simple and stupid random word generator
