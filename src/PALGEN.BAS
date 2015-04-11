@@ -1,3 +1,22 @@
+'****************************************************************************
+'**                                                                        **
+'**                              PALGEN.BAS                                **
+'**                           оооооооооооооооо                             **
+'**              The Simple and Stupid Random Word Generator               **
+'**                                                                        **
+'**                                 O R                                    **
+'**                                                                        **
+'**                  "Generador de palabras aleatorias"                    **
+'**                                                                        **
+'**                           оооооооооооооооо                             **
+'** This program was initially released in 2004 from a 286 IBM PC computer **
+'** by MicroBasic and re-released in 2011 using QB45 and QB64.             **
+'**                                                                        **
+'** The program can be run by typing SSRWG on BIN dir from DOS 3.0 or later**
+'** and/or Microsoft Windows with x86 architecture. For x86_64 users run   **
+'** the x86 version in dir X86WIN (compiled from QB64).                    **
+'****************************************************************************
+
 DECLARE SUB GeneraLetras ()
 RANDOMIZE TIMER
 DIM X AS INTEGER
