@@ -1,0 +1,62 @@
+DECLARE SUB GeneraLetras ()
+RANDOMIZE TIMER
+DIM X AS INTEGER
+DIM Num AS INTEGER
+DIM SHARED Letra(26) AS STRING
+
+DO
+  CLS
+  DO
+    INPUT "¨Cu ntas letras tendr  tu palabra? ", Num
+    IF Num > 25 THEN PRINT "Muy largo, ¨no crees?"
+  LOOP WHILE Num > 25
+  SCREEN 0, , 2
+
+  CLS 2
+  FOR X = 1 TO Num
+    DO
+      IF Num > 0 THEN
+        GeneraLetras
+        LOCATE 1, 1: INPUT "¨Vocal o consonante? (V/C): ", Vocons$
+      END IF
+    LOOP UNTIL UCASE$(Vocons$) = "V" OR UCASE$(Vocons$) = "C"
+ 
+    IF UCASE$(Vocons$) = "V" THEN LOCATE 5, X: PRINT Letra$(INT((25 - 21 + 1) * RND + 21))
+    IF UCASE$(Vocons$) = "C" THEN LOCATE 5, X: PRINT Letra$(INT(RND * 20))
+  NEXT X
+  
+  DO
+    LOCATE 7, 1: INPUT "¨M s? (S/N): ", SN$
+  LOOP UNTIL UCASE$(SN$) = "S" OR UCASE$(SN$) = "N"
+LOOP WHILE UCASE$(SN$) = "S"
+END
+
+SUB GeneraLetras
+Letra$(0) = "B"
+Letra$(1) = "C"
+Letra$(2) = "D"
+Letra$(3) = "F"
+Letra$(4) = "G"
+Letra$(5) = "H"
+Letra$(6) = "J"
+Letra$(7) = "K"
+Letra$(8) = "L"
+Letra$(9) = "M"
+Letra$(10) = "N"
+Letra$(11) = "P"
+Letra$(12) = "Q"
+Letra$(13) = "R"
+Letra$(14) = "S"
+Letra$(15) = "T"
+Letra$(16) = "V"
+Letra$(17) = "W"
+Letra$(18) = "X"
+Letra$(19) = "Y"
+Letra$(20) = "Z"
+Letra$(21) = "A"
+Letra$(22) = "E"
+Letra$(23) = "I"
+Letra$(24) = "O"
+Letra$(25) = "U"
+END SUB
+
