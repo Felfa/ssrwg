@@ -12,9 +12,9 @@
 '** This program was initially released in 2004 from a 286 IBM PC computer **
 '** by MicroBasic and re-released in 2011 using QB45 and QB64.             **
 '**                                                                        **
-'** The program can be run by typing SSRWG on BIN dir from DOS 3.0 or later**
+'** The program can be run by typing SSRWGDOS on BIN\DOS8EXE dir from DOS  **
 '** and/or Microsoft Windows with x86 architecture. For x86_64 users run   **
-'** the x86 version in dir X86WIN (compiled from QB64).                    **
+'** the x86 version in dir BIN\X86WIN (compiled from QB64).                **
 '****************************************************************************
 
 DECLARE SUB GeneraLetras ()
